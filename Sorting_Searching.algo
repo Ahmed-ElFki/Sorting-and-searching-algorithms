@@ -1,0 +1,22 @@
+ALGORITHM insert_search
+VAR
+    card_number : INTEGER;
+    new_card_index : INTEGER := 0;
+    cards : ARRAY_OF INTEGER[5] = {1, 2, 4, 5, 6};
+    new_cards_array : ARRAY_OF INTEGER[6];
+BEGIN
+    FOR i FROM 0 TO cards.length-1 STEP 1  DO
+        IF (cards[i] < card_number) THEN
+            new_cards_array[i] = cards[i]
+        ELSE
+            new_card_index = i;
+        END_IF
+        break;
+    END_FOR
+
+    new_cards_array[i] = card_number;
+
+    FOR i FROM new_card_index+1 TO new_cards_array.length-1 STEP 1  DO
+        new_cards_array[i] = cards[i-1];
+    END_FOR
+END
